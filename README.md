@@ -8,4 +8,4 @@ SPIFFS.h
 WIRE.h
 BME280I2C.h
 SparkFun_MMA8452Q.h
-Purchase ESP32 and Sensors atthese links on Amazon to help support our activites here
+Purchase ESP32 and Sensors at these links on Amazon to help support our activites here
