@@ -1,5 +1,5 @@
 # Esp32WebSensorsHTML
-An Asynf Web Server using seperatey created webpages and sesnors. Also with links to off device web assets
+An Async Web Server using seperatey created webpages and sesnors. Also with links to off device web assets
 Sensors are BME280 and Accelerometer MMA8452Q
 Libraries used:
 WiFi.h
