@@ -1,0 +1,94 @@
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    html {
+     font-family: Arial;
+     display: inline-block;
+     margin: 0px auto;
+     text-align: center;
+    }
+    h2 { font-size: 3.0rem; }
+    p { font-size: 3.0rem; }
+    .units { font-size: 1.2rem; }
+    .dht-labels{
+      font-size: 1.5rem;
+      vertical-align:middle;
+      padding-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TiDi BME280 Server</h1>
+  <img src="https://sdrive-storage.s3.amazonaws.com/themadhackerclubcom/5fd529ca90e956/60679721/bosch-bme280-200.jpg" width="200" height="166" alt="" title="" />
+ <p>
+    
+      
+    <p>
+    
+	<p><font size="5">Dev ID: </font><font size="4"><strong> %IDDEVICE%</strong></font></p>
+    
+    </p>
+
+    
+  <p>
+    <i class="fas fa-thermometer-half" style="color:#ff0000;"></i> 
+    <span class="dht-labels">Temperature</span> 
+    <span id="temperature">%TEMPERATURE%</span>
+    <sup class="units">&deg;F</sup>
+  </p>
+  <p>
+    <i class="fas fa-tint" style="color:#00add6;"></i> 
+	<span class="dht-labels">Humidity</span>
+    <span id="humidity">%HUMIDITY%</span>
+    <sup class="units">&percnt;RH</sup>
+ </p>
+ <p>
+    <i class="fas fa-cloud-sun-rain" style="color:#00FF00;"></i>  
+	<span class="dht-labels">Atm</span>
+    <span id="pressure">%PRESSURE%</span>
+    <sup class="units">inHg;</sup>
+ </p>
+  
+  <a href="/">BACK</a>
+</body>
+<script>
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("temperature").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/temperature", true);
+  xhttp.send();
+}, 1000 ) ;
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("humidity").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/humidity", true);
+  xhttp.send();
+}, 1000 ) ;
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("pressure").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/pressure", true);
+  xhttp.send();
+}, 1000 ) ;
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    html {
+     font-family: Arial;
+     display: inline-block;
+     margin: 0px auto;
+     text-align: center;
+    }
+    h2 { font-size: 3.0rem; }
+    p { font-size: 3.0rem; }
+    .units { font-size: 1.2rem; }
+    .dht-labels{
+      font-size: 1.5rem;
+      vertical-align:middle;
+      padding-bottom: 15px;
+    }
+	.button {
+  display: inline-block;
+  background-color: #f44336;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 2px;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <h1>TiDi ACCEL</h1>
+ <span> <img src="https://sdrive-storage.s3.amazonaws.com/themadhackerclubcom/5fd6399658a2e3/53085966/Mems200X200.png" /></span>
+ 
+<div align="center"></div><iframe src="http://free.timeanddate.com/clock/i7l9ddmw/n263/tt0/tw0" frameborder="0" width="232" height="18"></iframe></div>
+
+    
+	<div align="center"><font size="5">Dev ID: </font><font size="4"><strong> %IDDEVICE%</strong></font></div>
+    
+  
+
+    
+  <p>
+    <i class="fas fa-fighter-jet" style="color:#ff0000;"></i> 
+	
+    <span class="dht-labels">gForce X</span> 
+    <span id="gforcex">%GFORCEX%</span>
+    <sup class="units">g's</sup>
+	
+	 <span class="dht-labels">Y</span> 
+    <span id="gforcey">%GFORCEY%</span>
+    <sup class="units">g's</sup>
+	
+	 <span class="dht-labels">Z</span> 
+    <span id="gforcez">%GFORCEZ%</span>
+    <sup class="units">g's</sup>
+	
+  </p>
+  <p>
+    <i class="fas fa-hammer" style="color:#00add6;"></i> 
+	<span class="dht-labels">Taps</span>
+    <span id="taps">%TAPS%</span>
+    <sup class="units">count&nbsp;&nbsp;</sup><a href="/tapreset"><button class="button butRed">RESET</button></a>
+	
+ </p>
+ <p></p>
+
+   <p>
+    <i class="fas fa-redo" style="color:#FF8040;"></i>  
+	<span class="dht-labels">Orientation</span>
+    <span id="position">%POSITION%</span>
+    <sup class="units">pos;</sup>
+ </p>
+  <a href="/">BACK</a>
+</body>
+<script>
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("gforcex").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/gforcex", true);
+  xhttp.send();
+}, 250 ) ;
+
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("gforcey").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/gforcey", true);
+  xhttp.send();
+}, 250 ) ;
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("gforcez").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/gforcez", true);
+  xhttp.send();
+}, 250 ) ;
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("taps").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/taps", true);
+  xhttp.send();
+}, 100 ) ;
+
+
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("position").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/position", true);
+  xhttp.send();
+}, 250 ) ;
+
+</script>
+
+</html>
